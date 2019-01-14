@@ -31,22 +31,33 @@ $(document).ready(function(){
 
 $(document).ready(function() {
 
-  // FADE IN FLASH CARDS ON HOME PAGE
-   $('.flash-card-array').hide().removeClass('hidden').slideDown(200);
-
-  $('.flash-card').hide().delay(100).fadeIn(400);
 
   // TOGGLE NAVIGATION LIST AND NAVIGATION TOGGLE
+  // HIDE NAVBAR BRAND ON EXPANDED MENU
   $('#navToggle').on('click', function(e) {
 
     if ( $(this).hasClass('fa-bars')) {
-
+      $('.navbar-brand-img').fadeOut();
       $('#navExpand').removeClass('hide-small').fadeIn();
       $(this).removeClass('fa-bars').addClass('fa-times');
+
     } else {
       $('#navExpand').fadeOut();
       $(this).removeClass('fa-times').addClass('fa-bars');
+      $('.navbar-brand-img').fadeIn();
     }
+  });
+
+  //MINIMIZE NAVBAR BRAND IMAGE ON SCROLL
+  $(window).on('scroll', function() {
+
+        let scrollHeight = window.pageYOffset;
+        let navbarBrand = $('.navbar-brand-img');
+        if (scrollHeight >= 100) {
+          navbarBrand.slideUp(300);
+        } if (scrollHeight < 100) {
+          navbarBrand.slideDown(300);
+        }
   });
 
   // BACK BUTTON FUNCTION
