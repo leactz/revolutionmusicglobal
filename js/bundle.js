@@ -8,7 +8,8 @@ $(document).ready(function(){
 
       $('.carousel-array').animate({
 
-        scrollLeft: $leftPos + 320
+        //scrollLeft: $leftPos + 320
+        scrollLeft: $leftPos + Math.floor($(window).width()/2)+16
 
       } ,800);
   });
@@ -19,7 +20,8 @@ $(document).ready(function(){
 
     $('.carousel-array').animate({
 
-      scrollLeft: $leftPos - 320
+    //  scrollLeft: $leftPos - 320
+    scrollLeft: $leftPos - Math.floor($(window).width()/2)-16
 
     } ,800);
 
